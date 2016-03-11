@@ -7,6 +7,7 @@
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{fourier}
+\usepackage[bookmarks=true, hidelinks]{hyperref}
 \author{Carlos Pinto Machado}
 \title{
 	Sinais e Sistemas - 1º Trabalho Prático \\
@@ -25,39 +26,223 @@
 
 \section{Sinais}
 \subsection{Notas Musicais}
-No guia, explicitou-se algumas propriedades das notas musicais, que serão relevantes na próxima subsecção.
+No guia, explicitou-se algumas propriedades das notas musicais, que serão 
+relevantes na próxima subsecção.
 Essas são:
 
 \begin{itemize}
-\item A escala musical é logarítmica, que implica uma razão de 2:1 entre cada oitava.
+\item A escala musical é logarítmica, que implica uma razão de 2:1 entre cada 
+oitava.
 \item As diferenças entre as notas, por meio tom, são de $\sqrt[12]{2}$.
-\item A frequência de $Lá_4$ é de 440 Hz.
+\item A frequência de $\text{Lá}_4$ é de 440 Hz.
 \end{itemize}
 
 \subsubsection{Cálculo das Frequências}
 \begin{itemize}
-\item $Sol_4$ é 1 tom abaixo de $Lá_4$.	
+\item $Sol_4$ é 1 tom abaixo de $\text{Lá}_4$.	
 	\begin{equation}
-		Sol_4 = Lá_4 \; (\sqrt[12]{2})^{-2} \approx 391.995 Hz
+		Sol_4 = \text{Lá}_4 \; (\sqrt[12]{2})^{-2} \approx 391.995 Hz
 	\end{equation}
 	
-\item $Sol_4^\#$ é $\frac{1}{2}$ tom abaixo de $Lá_4$.	
+\item $Sol_4^\#$ é $\frac{1}{2}$ tom abaixo de $\text{Lá}_4$.	
 	\begin{equation}
-		Sol_4^\# = Lá_4 \; (\sqrt[12]{2})^{-1} \approx 415.305 Hz
+		Sol_4^\# = \text{Lá}_4 \; (\sqrt[12]{2})^{-1} \approx 415.305 Hz
 	\end{equation}
 	
-\item $Si_4$ é 1 tom acima de $Lá_4$.	
+\item $Si_4$ é 1 tom acima de $\text{Lá}_4$.	
 	\begin{equation}
-		Si_4 = Lá_4 \; (\sqrt[12]{2})^2 \approx 493.883 Hz
+		Si_4 = \text{Lá}_4 \; (\sqrt[12]{2})^2 \approx 493.883 Hz
 	\end{equation}
 	
-\item $Dó_5$ é $\frac{3}{2}$ tom abaixo de $Lá_4$.	
+\item $\text{Dó}_5$ é $\frac{3}{2}$ tom acima de $\text{Lá}_4$.	
 	\begin{equation}
-		Dó_5 = Lá_4 \; (\sqrt[12]{2})^{-2} \approx 523.251 Hz
+		\text{Dó}_5 = _4 \; (\sqrt[12]{2})^{-2} \approx 523.251 Hz
 	\end{equation}
 \end{itemize}
 
+\newpage
+
 \section{Sistemas}
 
+Tendo o sistema, cuja relação entrada-saída é dada por
+
+\begin{equation}
+	\begin{split}
+		y(t) &= x(t) + A \; x(t-t_0), \\
+		x(t) &- entrada \\		
+		y(t) &- \text{saída}	\\
+		A &- \text{amplitude de sinal atrasado, neste caso 0.7} \\
+		t_0 &- \text{atraso do segundo sinal, neste caso 0.3}
+	\end{split}
+\end{equation}
+
+\subsection{Linearidade e Invariância no tempo}
+Classificação do sistema quanto à linearidade e invariância no tempo.
+
+\subsubsection{Linearidade}
+Para averiguar a linearidade de um sistema, vamos supor uma combinação linear
+de dois sinais, como a entrada do sistema.
+
+\begin{equation}
+	x(t) = \alpha \; x_1(t) + \beta \; x_2(t) \;, \alpha, \; \beta \in \mathbb{R}
+\end{equation}
+
+Caso a resposta, a esta entrada seja a soma das repostas a cada um dos sinais constituintes, podemos deduzir que o sistema é linear.
+
+\begin{equation}
+	\begin{split}
+		y(t) &= x(t) + A \; x(t - t_0) \\
+		&= (\alpha \; x_1(t) + \beta \; x_2(t)) + A
+		(\alpha \; x_1(t-t_0) + \beta \; x_2(t-t_0)) \\
+		&= (\alpha \; x_1(t) + A \alpha \; x_1(t-t_0)) + 
+		(\beta \; x_2(t) + A \beta \; x_2(t-t_0)) \\
+		&= \alpha \; (x_1(t) + A \; x_1(t-t_0)) + 
+		\beta \; (x_2(t) + A \; x_2(t-t_0)) \\
+		&= \alpha \; y_1(t) + \beta \; y_2(t) \\ \\
+		y_1(t) &- \text{saída do sistema, com }x(t) = x_1(t) \\
+		y_2(t) &- \text{saída do sistema, com }x(t) = x_2(t)
+	\end{split}
+\end{equation}
+
+Com esta dedução, podemos concluir que o sistema é linear.
+
+\newpage
+\subsubsection{Invariância no tempo}
+
+Com o objectivo de deduzir se o sistema é invariante no tempo, teremos de
+considerar um sinal com uma dada fase, e testar se o sinal comporta-se da 
+mesma forma.
+
+\begin{equation}
+	x_3(t) = x(t - t_0'), \; t_0' > 0
+\end{equation}
+
+\begin{equation}
+	\begin{split}	
+		y_3(t) &= x_3(t) + A \; x_3(t - t_0') \\
+		&= x(t - t_0') + A \; x(t - t_0' - t_0) \\
+		&= y(t - t_0')
+	\end{split}
+\end{equation}
+
+Desta forma, concluímos que o sistema é invariante no tempo.
+
+\newpage
+\subsection{Resposta ao Impulso Unitário}
+
+Determinação da resposta do sistema ao impulso unitário.
+
+Considerando o impulso unitário,
+\begin{equation}
+	\delta (t) =
+	\begin{cases}
+		\; 1 \;, t = 0 \\
+		\; 0 \;, t \neq 0
+	\end{cases}, t \in \mathbb{R},
+\end{equation}
+
+e o sistema, em questão, podemos concluir que a resposta do sistema apenas
+assume 3 valores distintos, tendo em conta o atraso $t_0$ na saída do sistema.
+Estes podem-se reduzir da seguinte forma, em 5 etapas.
+
+\begin{enumerate}
+	\item Antes do impulso em $t = 0$, que é 0
+	\item Em $t=0$, durante o impulso, que é 1
+	\item Em $t \in ]0, \; t_0[$, que é 0	
+	\item Em $t = t_0$, durante a componente que tem fase, que é A
+	\item Em $t > t_0$, que é 0
+\end{enumerate}
+
+\begin{equation}
+	\begin{split}
+		y(t) &= x(t) + A \; x(t - t_0) \\
+		y(t) &= 
+		\begin{cases}
+			\; 1 \; &, t = 0 \\
+			\; A \;&, t = t_0 \\
+			\; 0 \; &, t \not \in \; \{0, \; t_0\}
+		\end{cases}
+	\end{split}
+\end{equation}
+
+
+
+\newpage
+\subsection{Memória, Causalidade e Estabilidade}
+Classificação do sistema a determinadas propriedades, nomeadamente memória, 
+causalidade e estabilidade.
+
+\subsubsection{Memória}
+O sistema possui memória, caso $t_0 \neq 0$. Neste contexto possui memória,
+porque $t_0 = 0.3$, que implica que depende de uma entrada de outro instante,
+sem ser o presente aquando os instante da resposta.
+
+\subsubsection{Causalidade}
+O sistema é causal, caso $t_0 \geq 0$, que implica a existência de um atraso,
+ou a inexistência de fase, ou seja, não possui a previsão da entrada. Sendo
+$t_0 = 0.3$, o sistema é causal, porque apenas depende das entradas presentes e 
+passadas.
+
+\subsubsection{Estabilidade}
+O sistema é estável, caso para uma entrada limitada, tem uma saída limitada.
+Dada à análise da resposta ao impulso unitário, podemos concluir que o sistema
+é estável.
+
+\newpage
+\subsection{Resposta a um sinal com dois steps}
+Determinação da resposta do sistema ao sinal $x_1(t) = u(t+1) - u(t-1)$.
+Considerando o sinal de step,
+
+\begin{equation}
+	u(t) = 
+	\begin{cases}
+		\; 1 \;, t \geq 0 \\
+		\; 0 \;, t < 0
+	\end{cases}
+	, t \in \mathbb{R},
+\end{equation}
+
+e o sinal step ser invariante no tempo, podemos deduzir que, dada a presença da
+fase na resposta do sistema, possui 4 valores distintos, em 5 etapas diferentes.
+
+\begin{enumerate}
+	\item Antes do primeiro step, em $t < -1$, que é de 0
+	\item Em $t \in [-1, \; 1 + t_0[$, que é de 1
+	\item Em $t \in [-1 + t_0, \; 1[$, que é de 1 + A
+	\item Em $t \in [1, \; 1 + t_0[$, que é de A
+	\item Em $t \geq 1 + t_0$, que é de 0
+\end{enumerate}
+
+\begin{equation}
+	y_1(t) = 
+	\begin{cases}
+		\; 0 \;   &, \; t \in ]-\infty,\; -1[ \; \vee \;[1 + t_0, \; + \infty [\\
+		\; 1 \;   &, \; t \in [-1, -1 + t_0[ \\
+		\; 1+A\;  &, \; t \in [-1 + t_0, \; 1[ \\
+		\; A \;   &, \; t \in [1, \; 1 + t_0[
+	\end{cases}
+\end{equation}
+
+\newpage
+\subsection{Resposta a um sinal com um seno}
+Por Responder
+
 \end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
