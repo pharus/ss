@@ -9,3 +9,7 @@ Repository structure:
 - notes: notes and observations on the subject
 - exercises: solved exercises from the book and others (The book I'll be using
  is Signals and Systems, by Allan V. Oppenheim)
+
+Note: Reading [Think DSP](http://greenteapress.com/thinkdsp/thinkdsp.pdf) to
+study Digital Signal Processing in Python.
+
