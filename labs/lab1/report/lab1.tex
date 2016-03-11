@@ -1,0 +1,63 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[portuguese]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{fourier}
+\author{Carlos Pinto Machado}
+\title{
+	Sinais e Sistemas - 1º Trabalho Prático \\
+	Conceitos básicos sobre sinais e sistemas
+}
+
+\setcounter{section}{1}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\newpage
+
+\section{Sinais}
+\subsection{Notas Musicais}
+No guia, explicitou-se algumas propriedades das notas musicais, que serão relevantes na próxima subsecção.
+Essas são:
+
+\begin{itemize}
+\item A escala musical é logarítmica, que implica uma razão de 2:1 entre cada oitava.
+\item As diferenças entre as notas, por meio tom, são de $\sqrt[12]{2}$.
+\item A frequência de $Lá_4$ é de 440 Hz.
+\end{itemize}
+
+\subsubsection{Cálculo das Frequências}
+\begin{itemize}
+\item $Sol_4$ é 1 tom abaixo de $Lá_4$.	
+	\begin{equation}
+		Sol_4 = Lá_4 \; (\sqrt[12]{2})^{-2} \approx 391.995 Hz
+	\end{equation}
+	
+\item $Sol_4^\#$ é $\frac{1}{2}$ tom abaixo de $Lá_4$.	
+	\begin{equation}
+		Sol_4^\# = Lá_4 \; (\sqrt[12]{2})^{-1} \approx 415.305 Hz
+	\end{equation}
+	
+\item $Si_4$ é 1 tom acima de $Lá_4$.	
+	\begin{equation}
+		Si_4 = Lá_4 \; (\sqrt[12]{2})^2 \approx 493.883 Hz
+	\end{equation}
+	
+\item $Dó_5$ é $\frac{3}{2}$ tom abaixo de $Lá_4$.	
+	\begin{equation}
+		Dó_5 = Lá_4 \; (\sqrt[12]{2})^{-2} \approx 523.251 Hz
+	\end{equation}
+\end{itemize}
+
+\section{Sistemas}
+
+\end{document}
+
